@@ -66,7 +66,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-//await DataSeedFunctions.SeedData(app.Services);
+await DataSeedFunctions.SeedData(app.Services);
 
 app.Run();
 

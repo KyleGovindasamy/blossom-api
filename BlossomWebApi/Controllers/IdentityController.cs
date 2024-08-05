@@ -20,9 +20,15 @@ namespace BlossomWebApi.Controllers
         private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _db;
 
-        public IdentityController()
+        public IdentityController(UserManager<ApplicationUser> userManager, 
+            SignInManager<ApplicationUser> signInManager,
+            IConfiguration configuration, 
+            ApplicationDbContext db)
         {
-            
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _configuration = configuration;
+            _db = db;
         }
 
 

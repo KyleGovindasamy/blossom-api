@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlossomWebApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240805124222_Initial_DB")]
+    [Migration("20240805181239_Initial_DB")]
     partial class Initial_DB
     {
         /// <inheritdoc />
