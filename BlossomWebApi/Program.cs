@@ -35,20 +35,18 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
-// Add CORS policy to allow all origins
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyAllowSpecificOrigins", policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // Specify the client URL
+        policy.WithOrigins("http://localhost:5173") 
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials(); // Allow credentials
+            .AllowCredentials(); 
     });
 });
 
 builder.Services.AddControllers();
-
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -56,7 +54,6 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 app.UseCors("MyAllowSpecificOrigins");
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -69,4 +66,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+//await DataSeedFunctions.SeedData(app.Services);
+
 app.Run();
+
